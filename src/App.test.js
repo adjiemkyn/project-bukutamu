@@ -41,4 +41,38 @@ describe("Test function", () => {
       ]);
     });
   });
-});
+
+  // Optionally, you can also test your React component that uses handleSubmit
+  describe('YourComponent', () => {
+    it('should update state when form is submitted', () => {
+      const initialDataTamu = [];
+      render(
+        <YourComponent dataTamu={initialDataTamu} setDataTamu={mockSetDataTamu} />
+      );
+
+      const fullnameInput = screen.getByLabelText('Full Name');
+      const alamatInput = screen.getByLabelText('Alamat');
+      const pesanInput = screen.getByLabelText('Pesan');
+      const submitButton = screen.getByText('Submit');
+
+      fireEvent.change(fullnameInput, { target: { value: 'John Doe' } });
+      fireEvent.change(alamatInput, { target: { value: '123 Main St' } });
+      fireEvent.change(pesanInput, { target: { value: 'Test message' } });
+
+      fireEvent.click(submitButton);
+
+      // Verify that setDataTamu is called with the expected data
+      expect(mockSetDataTamu).toHaveBeenCalledWith([
+        {
+          fullname: 'John Doe',
+          alamat: '123 Main St',
+          pesan: 'Test message',
+          id: expect.any(Number), // Check if id is a number
+        },
+      ]);
+    });
+  });
+
+
+})
+
