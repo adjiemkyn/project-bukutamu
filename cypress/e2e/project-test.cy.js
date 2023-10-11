@@ -16,13 +16,5 @@ describe('Input data', () => {
     cy.get('#btn').click()
   })
 })
-// describe('clear data', () => {
-//   it('passes', () => {
-//     cy.visit('http://localhost:3000/')
-//     cy.get('#fullname').clear()
-//     cy.get('#alamat').clear()
-//     cy.get('#pesan').clear()
-//     cy.get('#btn').click()
-//   })
-// })
+
 
