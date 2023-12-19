@@ -1,6 +1,6 @@
 describe('Input data', () => {
   it('passes', () => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('http://localhost:3001/')
     cy.get('#fullname').type("Adjie")
     cy.get('#alamat').type("Jimbaran, Badung")
     cy.get('#pesan').type("Happy Wedding")
@@ -10,9 +10,9 @@ describe('Input data', () => {
     cy.get('#alamat').clear()
     cy.get('#pesan').clear()
 
-    cy.get('#fullname').type("Willy")
-    cy.get('#alamat').type("Kuta, Badung")
-    cy.get('#pesan').type("Selamat menempuh hidup baru")
+    cy.get('#fullname').type("")
+    cy.get('#alamat').type("")
+    cy.get('#pesan').type("")
     cy.get('#btn').click()
   })
 })
